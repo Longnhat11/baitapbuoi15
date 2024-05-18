@@ -1,0 +1,41 @@
+﻿@model BookManager.Models.Book
+@{
+    ViewBag.Title = "Add New Book";
+}
+
+<h2>Add New Book</h2>
+
+@using (Html.BeginForm("AddNewBook", "Book", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BookID)
+        @Html.TextBoxFor(model => model.BookID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.BookID)
+
+        @Html.LabelFor(model => model.BookName)
+        @Html.TextBoxFor(model => model.BookName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.BookName)
+
+        @Html.LabelFor(model => model.AuthorID)
+        @Html.TextBoxFor(model => model.AuthorID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.AuthorID)
+
+        @Html.LabelFor(model => model.CategoryID)
+        @Html.TextBoxFor(model => model.CategoryID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CategoryID)
+
+        @Html.LabelFor(model => model.Price)
+        @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Price)
+
+        @Html.LabelFor(model => model.Stock)
+        @Html.TextBoxFor(model => model.Stock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Stock)
+    </div>
+
+    <!-- Thêm các trường nhập liệu khác tùy theo thuộc tính của Book -->
+
+    <button type="submit" class="btn btn-primary">Add Book</button>
+}

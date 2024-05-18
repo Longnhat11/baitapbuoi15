@@ -1,0 +1,51 @@
+﻿
+<main>
+    @model  IEnumerable<BookManager.Models.Book>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Index</h2>
+    <p>
+        @Html.ActionLink("Create New Book", "AddNewBook")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookID)
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryID)
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorID)
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookID)
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryID)
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorID)
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <!--Hiển thị các thuộc tính của Book -->
+            </tr>
+        }
+    </table>
+</main>
